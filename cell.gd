@@ -6,6 +6,8 @@ class_name Cell
 
 var has_been_pressed: bool = false
 
+signal placed
+
 func _ready():
 	icon.frame = 0
 	
@@ -16,7 +18,9 @@ func _on_button_pressed():
 		
 	has_been_pressed = true
 	if Global.turn: 
-		icon.frame = 1
-	else: 
 		icon.frame = 2
+	else: 
+		icon.frame = 1
 	Global.turn = !Global.turn
+	
+	placed.emit()

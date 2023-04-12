@@ -13,6 +13,7 @@ offset_left = -45.0
 offset_top = -43.0
 offset_right = 40.0
 offset_bottom = 43.0
+action_mode = 0
 
 [node name="Ticons" type="Sprite2D" parent="."]
 position = Vector2(3.05176e-05, 0)
