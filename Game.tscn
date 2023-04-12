@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccldumoegdd5r"]
+[gd_scene load_steps=5 format=3 uid="uid://ccldumoegdd5r"]
 
 [ext_resource type="Texture2D" uid="uid://bw4fwwn647eii" path="res://sprites/tictactoegrid.png" id="1_you7v"]
 [ext_resource type="Script" path="res://CellManager.gd" id="2_roqax"]
 [ext_resource type="PackedScene" uid="uid://d1dxfsq7bwwdw" path="res://cell.tscn" id="2_s1sg2"]
+[ext_resource type="Texture2D" uid="uid://if1pnj4h0heg" path="res://sprites/win_state.png" id="4_058vy"]
 
 [node name="Game" type="Node2D"]
 
@@ -40,3 +41,8 @@ position = Vector2(580, 427)
 
 [node name="Cell9" parent="CellManager" instance=ExtResource("2_s1sg2")]
 position = Vector2(686, 426)
+
+[node name="WinState" type="Sprite2D" parent="."]
+position = Vector2(584, 89.0001)
+scale = Vector2(10, 10)
+texture = ExtResource("4_058vy")
