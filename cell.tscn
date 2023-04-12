@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1dxfsq7bwwdw"]
+
+[ext_resource type="Texture2D" uid="uid://dbqo5y3df6nfv" path="res://sprites/ticons.png" id="1_33rtp"]
+[ext_resource type="Script" path="res://cell.gd" id="1_v8f3o"]
+
+[node name="Cell" type="Node2D" node_paths=PackedStringArray("icon")]
+script = ExtResource("1_v8f3o")
+icon = NodePath("Ticons")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -45.0
+offset_top = -43.0
+offset_right = 40.0
+offset_bottom = 43.0
+
+[node name="Ticons" type="Sprite2D" parent="."]
+position = Vector2(3.05176e-05, 0)
+scale = Vector2(10, 10)
+texture = ExtResource("1_33rtp")
+hframes = 3
+frame = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
