@@ -28,6 +28,8 @@ enum {
 
 @export var win_stroke: Sprite2D
 
+@export var audiowin: AudioStreamPlayer
+
 var turns: int = 0
 
 func _ready() -> void:
@@ -69,7 +71,8 @@ func win(winner: int, winstate: int) -> void:
 	turns = 0
 	win_stroke.frame = winstate
 	Global.is_game_over = true
-
+	
+	
 func is_winning(cell1: Cell, cell2: Cell, cell3: Cell) -> int:
 	if cell1.icon.frame == cell2.icon.frame and cell1.icon.frame == cell3.icon.frame:
 		return cell1.icon.frame # Return the frame of the winner

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7xue5p8iaajr"
+path="res://.godot/imported/8-bit-retro-success-victory.mp3-c071eddb7f2895fe961a89f61b5724e1.mp3str"
+
+[deps]
+
+source_file="res://audio fx/8-bit-retro-success-victory.mp3"
+dest_files=["res://.godot/imported/8-bit-retro-success-victory.mp3-c071eddb7f2895fe961a89f61b5724e1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
