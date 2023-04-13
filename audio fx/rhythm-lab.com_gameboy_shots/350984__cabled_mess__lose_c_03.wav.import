@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bf7bxbndpnvb1"
+path="res://.godot/imported/350984__cabled_mess__lose_c_03.wav-cf8f149c912caf7499033d53b620d364.sample"
+
+[deps]
+
+source_file="res://audio fx/rhythm-lab.com_gameboy_shots/350984__cabled_mess__lose_c_03.wav"
+dest_files=["res://.godot/imported/350984__cabled_mess__lose_c_03.wav-cf8f149c912caf7499033d53b620d364.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

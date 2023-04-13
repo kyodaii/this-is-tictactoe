@@ -74,11 +74,11 @@ func win(winner: int, winstate: int) -> void:
 	
 	match winner: # <----- PUT WIN AUDIO HERE
 		CellManager.INVALID:
-			pass
+			$AudioGameDraw.play()
 		CellManager.CROSS:
-			pass
+			$AudioGameWon.play()
 		CellManager.CIRCLE:
-			pass
+			$AudioGameWon.play()
 	
 	
 func is_winning(cell1: Cell, cell2: Cell, cell3: Cell) -> int:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cpvl6v058xwo3"]
+[gd_scene load_steps=24 format=3 uid="uid://cpvl6v058xwo3"]
 
 [ext_resource type="Texture2D" uid="uid://bw4fwwn647eii" path="res://sprites/tictactoegrid.png" id="1_you7v"]
 [ext_resource type="Texture2D" uid="uid://if1pnj4h0heg" path="res://sprites/win_state.png" id="2_4e2we"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d4dg0bahvkxb6" path="res://winstates/winstate7.png" id="9_b4mm2"]
 [ext_resource type="Texture2D" uid="uid://c35uty87a55nt" path="res://winstates/winstate8.png" id="10_msrwa"]
 [ext_resource type="Texture2D" uid="uid://7q8l0hayna3" path="res://sprites/thegame.png" id="12_s5056"]
+[ext_resource type="AudioStream" uid="uid://bf7bxbndpnvb1" path="res://audio fx/rhythm-lab.com_gameboy_shots/350984__cabled_mess__lose_c_03.wav" id="13_4tsfp"]
 [ext_resource type="Script" path="res://Menu.gd" id="14_3in84"]
 [ext_resource type="Theme" uid="uid://b6l4dlgeptcvt" path="res://emptytheme.tres" id="15_3q3ck"]
 [ext_resource type="AudioStream" uid="uid://dmv6pmu7b6802" path="res://audio fx/rhythm-lab.com_gameboy_shots/cw_sound44.wav" id="15_cwrhh"]
@@ -33,10 +34,11 @@ position = Vector2(580, 320)
 scale = Vector2(10, 10)
 texture = ExtResource("1_you7v")
 
-[node name="CellManager" type="Node2D" parent="GameBoard" node_paths=PackedStringArray("win_stroke")]
+[node name="CellManager" type="Node2D" parent="GameBoard" node_paths=PackedStringArray("win_stroke", "audiowin")]
 script = ExtResource("2_roqax")
 winstates = Array[Texture2D]([ExtResource("3_74uk5"), ExtResource("4_0cpm7"), ExtResource("5_qu1e8"), ExtResource("6_mylkg"), ExtResource("7_35nw5"), ExtResource("8_gakqm"), ExtResource("9_b4mm2"), ExtResource("10_msrwa")])
 win_stroke = NodePath("../../Backarrow/Win_Stroke")
+audiowin = NodePath("AudioGameWon")
 
 [node name="Cell1" parent="GameBoard/CellManager" instance=ExtResource("2_s1sg2")]
 position = Vector2(474, 214)
@@ -64,6 +66,12 @@ position = Vector2(580, 427)
 
 [node name="Cell9" parent="GameBoard/CellManager" instance=ExtResource("2_s1sg2")]
 position = Vector2(686, 426)
+
+[node name="AudioGameWon" type="AudioStreamPlayer" parent="GameBoard/CellManager"]
+stream = ExtResource("21_dh4da")
+
+[node name="AudioGameDraw" type="AudioStreamPlayer" parent="GameBoard/CellManager"]
+stream = ExtResource("13_4tsfp")
 
 [node name="Menu" type="Sprite2D" parent="." node_paths=PackedStringArray("gameboard", "backbarrow")]
 position = Vector2(580, 320)
@@ -114,8 +122,5 @@ scale = Vector2(2, 2)
 texture = ExtResource("18_l5y0g")
 hframes = 9
 frame = 8
-
-[node name="AudioGameWon" type="AudioStreamPlayer" parent="Backarrow"]
-stream = ExtResource("21_dh4da")
 
 [connection signal="pressed" from="Menu/Button" to="Menu" method="deactivate"]
