@@ -34,11 +34,12 @@ position = Vector2(580, 320)
 scale = Vector2(10, 10)
 texture = ExtResource("1_you7v")
 
-[node name="CellManager" type="Node2D" parent="GameBoard" node_paths=PackedStringArray("win_stroke", "audiowin")]
+[node name="CellManager" type="Node2D" parent="GameBoard" node_paths=PackedStringArray("win_stroke", "audiowin", "audiodraw")]
 script = ExtResource("2_roqax")
 winstates = Array[Texture2D]([ExtResource("3_74uk5"), ExtResource("4_0cpm7"), ExtResource("5_qu1e8"), ExtResource("6_mylkg"), ExtResource("7_35nw5"), ExtResource("8_gakqm"), ExtResource("9_b4mm2"), ExtResource("10_msrwa")])
 win_stroke = NodePath("../../Backarrow/Win_Stroke")
 audiowin = NodePath("AudioGameWon")
+audiodraw = NodePath("AudioGameDraw")
 
 [node name="Cell1" parent="GameBoard/CellManager" instance=ExtResource("2_s1sg2")]
 position = Vector2(474, 214)

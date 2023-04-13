@@ -30,6 +30,8 @@ enum {
 
 @export var audiowin: AudioStreamPlayer
 
+@export var audiodraw: AudioStreamPlayer
+
 var turns: int = 0
 
 func _ready() -> void:
