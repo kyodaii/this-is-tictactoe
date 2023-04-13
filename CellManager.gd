@@ -49,9 +49,9 @@ func check_winstates() -> void:
 					positions.append(Vector2(x, y))
 		
 		match is_winning(
-			cells[positions[0].x][positions[0].y],
-			cells[positions[1].x][positions[1].y],
-			cells[positions[2].x][positions[2].y]
+			cells[positions[0].y][positions[0].x],
+			cells[positions[1].y][positions[1].x],
+			cells[positions[2].y][positions[2].x]
 		):
 			CellManager.INVALID:
 				pass
