@@ -72,6 +72,14 @@ func win(winner: int, winstate: int) -> void:
 	win_stroke.frame = winstate
 	Global.is_game_over = true
 	
+	match winner: # <----- PUT WIN AUDIO HERE
+		CellManager.INVALID:
+			pass
+		CellManager.CROSS:
+			pass
+		CellManager.CIRCLE:
+			pass
+	
 	
 func is_winning(cell1: Cell, cell2: Cell, cell3: Cell) -> int:
 	if cell1.icon.frame == cell2.icon.frame and cell1.icon.frame == cell3.icon.frame:
