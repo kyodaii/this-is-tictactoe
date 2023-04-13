@@ -17,10 +17,10 @@
 [ext_resource type="Theme" uid="uid://b6l4dlgeptcvt" path="res://emptytheme.tres" id="15_3q3ck"]
 [ext_resource type="AudioStream" uid="uid://dmv6pmu7b6802" path="res://audio fx/rhythm-lab.com_gameboy_shots/cw_sound44.wav" id="15_cwrhh"]
 [ext_resource type="Texture2D" uid="uid://bqtc8cay54fdf" path="res://sprites/backarrow.png" id="15_topf1"]
-[ext_resource type="AudioStream" uid="uid://dcbt4xfcw7yvg" path="res://audio fx/rhythm-lab.com_gameboy_shots/cw_sound43.wav" id="15_ypg5b"]
 [ext_resource type="Script" path="res://Backarrow.gd" id="17_5gfq2"]
 [ext_resource type="Texture2D" uid="uid://bdo3t2hxmlfy2" path="res://sprites/win_strokes.png" id="18_l5y0g"]
 [ext_resource type="AudioStream" uid="uid://dcuhhi5m7gqpm" path="res://audio fx/rhythm-lab.com_gameboy_shots/cw_sound42.wav" id="20_x82ck"]
+[ext_resource type="AudioStream" uid="uid://7xue5p8iaajr" path="res://audio fx/8-bit-retro-success-victory.mp3" id="21_dh4da"]
 [ext_resource type="AudioStream" uid="uid://c7hr3lotyuemh" path="res://audio fx/chiptune-loop-76520.mp3" id="22_r2y8t"]
 
 [node name="Game" type="Node2D"]
@@ -116,8 +116,6 @@ hframes = 9
 frame = 8
 
 [node name="AudioGameOver" type="AudioStreamPlayer" parent="Backarrow"]
-stream = ExtResource("15_ypg5b")
-
-[node name="AudioWin" type="AudioStreamPlayer" parent="Backarrow"]
+stream = ExtResource("21_dh4da")
 
 [connection signal="pressed" from="Menu/Button" to="Menu" method="deactivate"]

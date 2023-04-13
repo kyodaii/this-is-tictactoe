@@ -8,8 +8,8 @@ class_name Menu
 @onready var audiomenu: AudioStreamPlayer
 
 func _ready():
-	$AudioMenu.play()
 	Global.reset.connect(activate)
+	$AudioMenu.play()
 
 func activate():
 	$AudioMenu.play()
