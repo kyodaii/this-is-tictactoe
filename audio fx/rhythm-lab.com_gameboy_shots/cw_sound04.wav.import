@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bi02wdw43qwdq"
+path="res://.godot/imported/cw_sound04.wav-ea4f0b9a3036e26b82787ca5624f1252.sample"
+
+[deps]
+
+source_file="res://audio fx/rhythm-lab.com_gameboy_shots/cw_sound04.wav"
+dest_files=["res://.godot/imported/cw_sound04.wav-ea4f0b9a3036e26b82787ca5624f1252.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

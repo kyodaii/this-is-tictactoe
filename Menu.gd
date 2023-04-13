@@ -16,6 +16,7 @@ func activate():
 	button.disabled = false
 	
 func deactivate():
+	$Button/AudioGameStart.play()
 	self.visible = false
 	Global.in_game = true
 	gameboard.visible = true

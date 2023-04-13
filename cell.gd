@@ -18,8 +18,10 @@ func _on_button_pressed():
 		
 	has_been_pressed = true
 	if Global.turn: 
+		$AudioPlayer1.play()
 		icon.frame = 2
-	else: 
+	else:
+		$AudioPlayer2.play()
 		icon.frame = 1
 	Global.turn = !Global.turn
 	

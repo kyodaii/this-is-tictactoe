@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpvl6v058xwo3"]
+[gd_scene load_steps=22 format=3 uid="uid://cpvl6v058xwo3"]
 
 [ext_resource type="Texture2D" uid="uid://bw4fwwn647eii" path="res://sprites/tictactoegrid.png" id="1_you7v"]
 [ext_resource type="Texture2D" uid="uid://if1pnj4h0heg" path="res://sprites/win_state.png" id="2_4e2we"]
@@ -15,9 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://7q8l0hayna3" path="res://sprites/thegame.png" id="12_s5056"]
 [ext_resource type="Script" path="res://Menu.gd" id="14_3in84"]
 [ext_resource type="Theme" uid="uid://b6l4dlgeptcvt" path="res://emptytheme.tres" id="15_3q3ck"]
+[ext_resource type="AudioStream" uid="uid://dmv6pmu7b6802" path="res://audio fx/rhythm-lab.com_gameboy_shots/cw_sound44.wav" id="15_cwrhh"]
 [ext_resource type="Texture2D" uid="uid://bqtc8cay54fdf" path="res://sprites/backarrow.png" id="15_topf1"]
+[ext_resource type="AudioStream" uid="uid://dcbt4xfcw7yvg" path="res://audio fx/rhythm-lab.com_gameboy_shots/cw_sound43.wav" id="15_ypg5b"]
 [ext_resource type="Script" path="res://Backarrow.gd" id="17_5gfq2"]
 [ext_resource type="Texture2D" uid="uid://bdo3t2hxmlfy2" path="res://sprites/win_strokes.png" id="18_l5y0g"]
+[ext_resource type="AudioStream" uid="uid://dcuhhi5m7gqpm" path="res://audio fx/rhythm-lab.com_gameboy_shots/cw_sound42.wav" id="20_x82ck"]
 
 [node name="Game" type="Node2D"]
 
@@ -77,6 +80,9 @@ offset_bottom = 15.0
 theme = ExtResource("15_3q3ck")
 action_mode = 0
 
+[node name="AudioGameStart" type="AudioStreamPlayer" parent="Menu/Button"]
+stream = ExtResource("15_cwrhh")
+
 [node name="Backarrow" type="Sprite2D" parent="."]
 position = Vector2(591, 549)
 scale = Vector2(5, 5)
@@ -90,6 +96,9 @@ offset_right = 11.0
 offset_bottom = 8.0
 theme = ExtResource("15_3q3ck")
 
+[node name="AudioGameRestart" type="AudioStreamPlayer" parent="Backarrow"]
+stream = ExtResource("20_x82ck")
+
 [node name="OverText" type="Sprite2D" parent="Backarrow"]
 position = Vector2(-1.60003, -87.6)
 scale = Vector2(2, 2)
@@ -101,5 +110,8 @@ scale = Vector2(2, 2)
 texture = ExtResource("18_l5y0g")
 hframes = 9
 frame = 8
+
+[node name="AudioGameOver" type="AudioStreamPlayer" parent="Backarrow"]
+stream = ExtResource("15_ypg5b")
 
 [connection signal="pressed" from="Menu/Button" to="Menu" method="deactivate"]
