@@ -26,6 +26,8 @@ enum {
 
 @export var winstates: Array[Texture2D]
 
+@export var win_stroke: Sprite2D
+
 var turns: int = 0
 
 func _ready() -> void:
@@ -37,8 +39,8 @@ func _ready() -> void:
 func check_winstates() -> void:
 	turns += 1
 	
-	for texture in winstates:
-		var image: Image = texture.get_image()
+	for i in range(winstates.size()):
+		var image: Image = winstates[i].get_image()
 		var positions: Array[Vector2]
 		
 		for x in range(3):
@@ -54,17 +56,18 @@ func check_winstates() -> void:
 			CellManager.INVALID:
 				pass
 			CellManager.CROSS:
-				win(CellManager.CROSS)
+				win(CellManager.CROSS, i)
 				return
 			CellManager.CIRCLE:
-				win(CellManager.CIRCLE)
+				win(CellManager.CIRCLE, i)
 				return
 	
 	if turns == 9:
-		win(CellManager.INVALID)
+		win(CellManager.INVALID, 8)
 
-func win(winner: int) -> void:
+func win(winner: int, winstate: int) -> void:
 	turns = 0
+	win_stroke.frame = winstate
 	Global.is_game_over = true
 
 func is_winning(cell1: Cell, cell2: Cell, cell3: Cell) -> int:
@@ -74,9 +77,11 @@ func is_winning(cell1: Cell, cell2: Cell, cell3: Cell) -> int:
 		return 0
 
 func reset_board() -> void:
+	win_stroke.frame = 8
+	
 	for x in range(3):
 		for y in range(3):
 			var cell: Cell = cells[x][y] as Cell
 			cell.icon.frame = 0
 			cell.has_been_pressed = false
-		
+
