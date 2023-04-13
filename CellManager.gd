@@ -8,6 +8,8 @@ enum {
 	CIRCLE
 }
 
+
+@export var overtext: Sprite2D
 @onready var cell1: Cell = $Cell1
 @onready var cell2: Cell = $Cell2
 @onready var cell3: Cell = $Cell3 
@@ -30,6 +32,7 @@ func _ready() -> void:
 	for x in range(3):
 		for y in range(3):
 			(cells[x][y] as Cell).placed.connect(check_winstates)
+	overtext.visible = false
 
 func check_winstates() -> void:
 	for texture in winstates:
@@ -56,6 +59,8 @@ func check_winstates() -> void:
 				return
 
 func win(winner: int) -> void:
+	overtext.visible = true
+	Global.is_game_over = true
 	print(str(winner) + "won")
 
 func is_winning(cell1: Cell, cell2: Cell, cell3: Cell) -> int:

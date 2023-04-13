@@ -13,8 +13,8 @@ func _ready():
 	
 	
 func _on_button_pressed():
-	if has_been_pressed:
-		return
+	if has_been_pressed or Global.is_game_over or !Global.in_game:
+		return 
 		
 	has_been_pressed = true
 	if Global.turn: 
