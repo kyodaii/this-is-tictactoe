@@ -4,6 +4,7 @@ class_name Menu
 
 @onready var button = $Button
 @export var gameboard: Node2D
+@export var backbarrow: Backarrow
 
 func _ready():
 	Global.reset.connect(activate)

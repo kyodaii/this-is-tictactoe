@@ -8,8 +8,6 @@ enum {
 	CIRCLE
 }
 
-
-@export var overtext: Sprite2D
 @onready var cell1: Cell = $Cell1
 @onready var cell2: Cell = $Cell2
 @onready var cell3: Cell = $Cell3 
@@ -28,13 +26,17 @@ enum {
 
 @export var winstates: Array[Texture2D]
 
+var turns: int = 0
+
 func _ready() -> void:
 	for x in range(3):
 		for y in range(3):
 			(cells[x][y] as Cell).placed.connect(check_winstates)
-	overtext.visible = false
+	Global.reset.connect(reset_board)
 
 func check_winstates() -> void:
+	turns += 1
+	
 	for texture in winstates:
 		var image: Image = texture.get_image()
 		var positions: Array[Vector2]
@@ -57,14 +59,24 @@ func check_winstates() -> void:
 			CellManager.CIRCLE:
 				win(CellManager.CIRCLE)
 				return
+	
+	if turns == 9:
+		win(CellManager.INVALID)
 
 func win(winner: int) -> void:
-	overtext.visible = true
+	turns = 0
 	Global.is_game_over = true
-	print(str(winner) + "won")
 
 func is_winning(cell1: Cell, cell2: Cell, cell3: Cell) -> int:
 	if cell1.icon.frame == cell2.icon.frame and cell1.icon.frame == cell3.icon.frame:
 		return cell1.icon.frame # Return the frame of the winner
 	else:
 		return 0
+
+func reset_board() -> void:
+	for x in range(3):
+		for y in range(3):
+			var cell: Cell = cells[x][y] as Cell
+			cell.icon.frame = 0
+			cell.has_been_pressed = false
+		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ccldumoegdd5r"]
+[gd_scene load_steps=18 format=3 uid="uid://ccldumoegdd5r"]
 
 [ext_resource type="Texture2D" uid="uid://bw4fwwn647eii" path="res://sprites/tictactoegrid.png" id="1_you7v"]
 [ext_resource type="Texture2D" uid="uid://if1pnj4h0heg" path="res://sprites/win_state.png" id="2_4e2we"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://7q8l0hayna3" path="res://thegame.png" id="13_inkqe"]
 [ext_resource type="Script" path="res://Menu.gd" id="14_3in84"]
 [ext_resource type="Theme" uid="uid://b6l4dlgeptcvt" path="res://emptytheme.tres" id="15_3q3ck"]
+[ext_resource type="Texture2D" uid="uid://bqtc8cay54fdf" path="res://backarrow.png" id="16_pe343"]
+[ext_resource type="Script" path="res://Backarrow.gd" id="17_5gfq2"]
 
 [node name="Game" type="Node2D"]
 
@@ -26,14 +28,8 @@ position = Vector2(580, 320)
 scale = Vector2(10, 10)
 texture = ExtResource("1_you7v")
 
-[node name="OverText" type="Sprite2D" parent="GameBoard"]
-position = Vector2(583, 96)
-scale = Vector2(10, 10)
-texture = ExtResource("2_4e2we")
-
-[node name="CellManager" type="Node2D" parent="GameBoard" node_paths=PackedStringArray("overtext")]
+[node name="CellManager" type="Node2D" parent="GameBoard"]
 script = ExtResource("2_roqax")
-overtext = NodePath("../OverText")
 winstates = Array[Texture2D]([ExtResource("3_74uk5"), ExtResource("4_0cpm7"), ExtResource("5_qu1e8"), ExtResource("6_mylkg"), ExtResource("7_35nw5"), ExtResource("8_gakqm"), ExtResource("9_b4mm2"), ExtResource("10_msrwa")])
 
 [node name="Cell1" parent="GameBoard/CellManager" instance=ExtResource("2_s1sg2")]
@@ -63,12 +59,13 @@ position = Vector2(580, 427)
 [node name="Cell9" parent="GameBoard/CellManager" instance=ExtResource("2_s1sg2")]
 position = Vector2(686, 426)
 
-[node name="Menu" type="Sprite2D" parent="." node_paths=PackedStringArray("gameboard")]
+[node name="Menu" type="Sprite2D" parent="." node_paths=PackedStringArray("gameboard", "backbarrow")]
 position = Vector2(580, 320)
 scale = Vector2(10, 10)
 texture = ExtResource("13_inkqe")
 script = ExtResource("14_3in84")
 gameboard = NodePath("../GameBoard")
+backbarrow = NodePath("../Backarrow")
 
 [node name="Button" type="Button" parent="Menu"]
 offset_left = -16.0
@@ -76,5 +73,24 @@ offset_top = -13.0
 offset_right = 15.0
 offset_bottom = 15.0
 theme = ExtResource("15_3q3ck")
+action_mode = 0
+
+[node name="Backarrow" type="Sprite2D" parent="."]
+position = Vector2(591, 549)
+scale = Vector2(5, 5)
+texture = ExtResource("16_pe343")
+script = ExtResource("17_5gfq2")
+
+[node name="Button" type="Button" parent="Backarrow"]
+offset_left = -12.0
+offset_top = -8.0
+offset_right = 11.0
+offset_bottom = 8.0
+theme = ExtResource("15_3q3ck")
+
+[node name="OverText" type="Sprite2D" parent="Backarrow"]
+position = Vector2(-1.60003, -90.6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_4e2we")
 
 [connection signal="pressed" from="Menu/Button" to="Menu" method="deactivate"]
