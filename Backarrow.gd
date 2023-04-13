@@ -10,7 +10,7 @@ func _ready() -> void:
 	button.pressed.connect(back)
 
 func activate():
-	$AudioGameOver.play()
+	$AudioGameWon.play()
 	self.visible = true
 	button.disabled = false
 

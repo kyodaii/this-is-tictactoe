@@ -115,7 +115,7 @@ texture = ExtResource("18_l5y0g")
 hframes = 9
 frame = 8
 
-[node name="AudioGameOver" type="AudioStreamPlayer" parent="Backarrow"]
+[node name="AudioGameWon" type="AudioStreamPlayer" parent="Backarrow"]
 stream = ExtResource("21_dh4da")
 
 [connection signal="pressed" from="Menu/Button" to="Menu" method="deactivate"]
